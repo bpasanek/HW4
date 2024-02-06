@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://bswrrkf8e25ju"]
+
+[ext_resource type="Script" path="res://scripts/Rotate.gd" id="1_h1x2f"]
+[ext_resource type="Script" path="res://scripts/Sun.gd" id="2_ecyrx"]
+[ext_resource type="Script" path="res://scripts/Mercury.gd" id="3_5pvmq"]
+[ext_resource type="Texture2D" uid="uid://cawtr46jwllfe" path="res://mars.svg" id="4_gkrkp"]
+[ext_resource type="Script" path="res://scripts/Venus.gd" id="4_kvuqv"]
+[ext_resource type="Texture2D" uid="uid://ck1x8xluqyyfy" path="res://Satellite.svg" id="6_53q52"]
+[ext_resource type="Texture2D" uid="uid://cr6xccgyvccau" path="res://Moon.svg" id="7_v64tx"]
+[ext_resource type="Texture2D" uid="uid://bev0gfm21dtab" path="res://UFO.svg" id="8_upcfj"]
+[ext_resource type="Texture2D" uid="uid://brl28lcayqf65" path="res://Background.jpg" id="9_5r55n"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Center" type="Node2D" parent="."]
+position = Vector2(556, 318)
+scale = Vector2(0.799998, 0.799998)
+script = ExtResource("1_h1x2f")
+rotation_speed = 0.01
+
+[node name="Sun" type="Node2D" parent="Center"]
+position = Vector2(-556, -318)
+script = ExtResource("2_ecyrx")
+
+[node name="Mercury" type="Node2D" parent="Center"]
+position = Vector2(-68, -70)
+script = ExtResource("3_5pvmq")
+
+[node name="Venus" type="Node2D" parent="Center"]
+position = Vector2(-258, -230)
+script = ExtResource("4_kvuqv")
+
+[node name="Center-Moon" type="Node2D" parent="Center/Venus"]
+script = ExtResource("1_h1x2f")
+rotation_speed = 0.05
+
+[node name="Moon" type="Sprite2D" parent="Center/Venus/Center-Moon"]
+position = Vector2(28, 64)
+scale = Vector2(0.00478049, 0.00478049)
+texture = ExtResource("7_v64tx")
+
+[node name="SpaceJunk" type="Polygon2D" parent="Center"]
+position = Vector2(-357, 94)
+color = Color(0.552941, 0.745098, 0.823529, 0.905882)
+polygon = PackedVector2Array(-9, -10, -21, -4, -10, 2, -14, 15, 3, 9, 9, 11, -1, 3, 7, -7, 14, -1, 15, -8, 6, -14)
+
+[node name="Mars" type="Sprite2D" parent="Center"]
+position = Vector2(366, -194)
+scale = Vector2(0.08125, 0.08125)
+texture = ExtResource("4_gkrkp")
+
+[node name="Center-Satellite" type="Node2D" parent="Center/Mars"]
+script = ExtResource("1_h1x2f")
+rotation_speed = 0.02
+
+[node name="Satellite" type="Sprite2D" parent="Center/Mars/Center-Satellite"]
+position = Vector2(127.308, 971.717)
+rotation = 2.39536
+scale = Vector2(1.7339, 1.85251)
+texture = ExtResource("6_53q52")
+
+[node name="Ufo" type="Sprite2D" parent="Center"]
+position = Vector2(239, 161)
+rotation = 2.17761
+scale = Vector2(0.07125, 0.07125)
+texture = ExtResource("8_upcfj")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(557, 386)
+scale = Vector2(2.10584, 2.10584)
+texture = ExtResource("9_5r55n")
