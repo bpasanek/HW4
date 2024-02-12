@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bswrrkf8e25ju"]
+[gd_scene load_steps=11 format=3 uid="uid://bswrrkf8e25ju"]
 
 [ext_resource type="Script" path="res://scripts/Rotate.gd" id="1_h1x2f"]
 [ext_resource type="Script" path="res://scripts/Sun.gd" id="2_ecyrx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cr6xccgyvccau" path="res://Moon.svg" id="7_v64tx"]
 [ext_resource type="Texture2D" uid="uid://bev0gfm21dtab" path="res://UFO.svg" id="8_upcfj"]
 [ext_resource type="Texture2D" uid="uid://brl28lcayqf65" path="res://Background.jpg" id="9_5r55n"]
+[ext_resource type="Script" path="res://scripts/DeathStar.gd" id="9_xg1hc"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -71,3 +72,6 @@ texture = ExtResource("8_upcfj")
 position = Vector2(557, 386)
 scale = Vector2(2.10584, 2.10584)
 texture = ExtResource("9_5r55n")
+
+[node name="DeathStar" type="Node2D" parent="."]
+script = ExtResource("9_xg1hc")
